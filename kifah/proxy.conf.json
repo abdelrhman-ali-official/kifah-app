@@ -1,0 +1,18 @@
+{
+  "/api": {
+    "target": "https://kifah.runasp.net",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/api": "/api" }
+  },
+  "/t4p": {
+    "target": "https://data.techforpalestine.org",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/t4p": "" }
+  }
+}
+
+

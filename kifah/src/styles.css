@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'TheYearofHandicrafts';
+  src: url('./fonts/alfont_com_TheYearofHandicrafts-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'arabic';
+  src: url('./fonts/arabic.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply bg-glass backdrop-blur-md border border-glass-border;
+  }
+  
+  .glass-glow {
+    @apply shadow-2xl shadow-red-500/20;
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
+  }
+  
+  .arabic-text {
+    font-family: 'arabic', 'Cairo', 'Amiri', Arial, sans-serif;
+    direction: rtl;
+  }
+  
+  .typewriter {
+    overflow: hidden;
+    border-right: 2px solid #dc2626;
+    white-space: nowrap;
+    animation: typewriter 2s steps(40) 1s 1 normal both, blink 1s infinite;
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .glow-hover {
+    transition: all 0.3s ease;
+  }
+  
+  .glow-hover:hover {
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.6);
+    transform: translateY(-2px);
+  }
+}
+
+@layer utilities {
+  .bg-gradient-dark {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+  }
+  
+  .text-shadow-glow {
+    text-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
+  }
+}
