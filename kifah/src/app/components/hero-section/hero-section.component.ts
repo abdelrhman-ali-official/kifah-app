@@ -42,46 +42,46 @@ interface PaginationInfo {
       </div>
 
       <!-- Add spacing to push content down -->
-      <div class="pt-16 md:pt-20 lg:pt-24"></div>
+      <div class="pt-12 sm:pt-16 md:pt-20 lg:pt-24"></div>
       
-      <div class="container mx-auto px-4 text-center relative z-10 pb-32 pt-10 md:pt-16 lg:pt-20">
+      <div class="container mx-auto px-2 sm:px-4 md:px-6 lg:px-8 text-center relative z-10 pb-20 sm:pb-24 md:pb-32 pt-6 sm:pt-8 md:pt-12 lg:pt-16">>
         <!-- Enhanced Arabic Text with Typewriter Effect -->
-        <div class="mb-20 mt-24 md:mt-32">
+        <div class="mb-16 md:mb-20 mt-16 md:mt-24 lg:mt-32 px-2 sm:px-4">
           <h2 
-            class="text-4xl md:text-6xl lg:text-7xl font-bold font-custom text-white mb-6 min-h-[4.5rem] flex items-center justify-center"
+            class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-custom text-white mb-4 md:mb-6 min-h-[3rem] sm:min-h-[3.5rem] md:min-h-[4.5rem] flex items-center justify-center"
             [@fadeInUp]
           >
             <span class="typewriter-text">
               {{ displayText }}<span class="cursor"></span>
             </span>
           </h2>
-          <p class="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto" [@fadeInUp]>
+          <p class="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4" [@fadeInUp]>
             Search for victims, remember their stories, honor their memory
           </p>
         </div>
 
         <!-- Enhanced Search Section -->
-        <div class="max-w-4xl mx-auto mb-8">
-          <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="space-y-6">
+        <div class="max-w-4xl mx-auto mb-6 sm:mb-8 px-2 sm:px-4">
+          <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="space-y-4 sm:space-y-6">
             <!-- Main Search Input -->
             <div class="relative">
               <input 
                 type="text" 
                 formControlName="name"
                 placeholder="Search by name or family..."
-                class="w-full px-8 py-4 text-lg bg-glass backdrop-blur-md border border-red-500/30 rounded-2xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-red focus:border-transparent transition-all duration-300 glow-hover"
+                class="w-full px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg bg-glass backdrop-blur-md border border-red-500/30 rounded-xl sm:rounded-2xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-red focus:border-transparent transition-all duration-300 glow-hover"
                 [@searchAnimation]
               />
-              <div class="absolute inset-0 bg-gradient-to-r from-red-500/10 to-transparent rounded-2xl pointer-events-none"></div>
+              <div class="absolute inset-0 bg-gradient-to-r from-red-500/10 to-transparent rounded-xl sm:rounded-2xl pointer-events-none"></div>
               <button 
                 type="submit"
-                class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-primary-red transition-colors duration-300 p-2 rounded-lg hover:bg-red-500/20"
+                class="absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-primary-red transition-colors duration-300 p-2 rounded-lg hover:bg-red-500/20"
                 [disabled]="loading"
               >
-                <svg *ngIf="!loading" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg *ngIf="!loading" class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
-                <div *ngIf="loading" class="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                <div *ngIf="loading" class="w-5 h-5 sm:w-6 sm:h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
               </button>
             </div>
 
@@ -226,33 +226,33 @@ interface PaginationInfo {
         </div>
 
         <!-- Enhanced Call to Action -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-6 sm:mb-8 px-4">
           <button 
             type="button" 
-            class="px-8 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-lg hover:shadow-red-500/25 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none" 
+            class="w-full sm:w-auto px-6 sm:px-8 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-lg sm:rounded-xl font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-lg hover:shadow-red-500/25 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none" 
             (click)="onSearch()" 
             [disabled]="loading"
             [@fadeInUp]
           >
-            <span class="flex items-center space-x-2">
-              <svg *ngIf="!loading" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span class="flex items-center justify-center space-x-2">
+              <svg *ngIf="!loading" class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
               </svg>
-              <div *ngIf="loading" class="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-              <span>{{ loading ? 'Searching...' : 'Search Now' }}</span>
+              <div *ngIf="loading" class="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+              <span class="text-sm sm:text-base">{{ loading ? 'Searching...' : 'Search Now' }}</span>
             </span>
           </button>
           <button 
-            class="px-8 py-3 glass-effect text-white rounded-xl font-semibold hover:text-primary-red transition-all duration-300 glow-hover border border-white/20"
+            class="w-full sm:w-auto px-6 sm:px-8 py-3 glass-effect text-white rounded-lg sm:rounded-xl font-semibold hover:text-primary-red transition-all duration-300 glow-hover border border-white/20"
             (click)="scrollToVictims()"
             [@fadeInUp]
             style="animation-delay: 0.2s;"
           >
-            <span class="flex items-center space-x-2">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span class="flex items-center justify-center space-x-2">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
               </svg>
-              <span>View All Victims</span>
+              <span class="text-sm sm:text-base">View All Victims</span>
             </span>
           </button>
         </div>
@@ -436,10 +436,10 @@ interface PaginationInfo {
         </div>
 
         <!-- Scroll Indicator -->
-        <div class="absolute bottom-12 left-[40%] md:left-[46%] transform -translate-x-1/2 animate-bounce" *ngIf="!submitted">
-          <div class="flex flex-col items-center space-y-3">
-            <span class="text-gray-300 text-sm font-medium">Scroll to explore</span>
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="absolute bottom-8 sm:bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce" *ngIf="!submitted">
+          <div class="flex flex-col items-center space-y-2 sm:space-y-3">
+            <span class="text-gray-300 text-xs sm:text-sm font-medium hidden sm:block">Scroll to explore</span>
+            <svg class="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
                     d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
             </svg>
@@ -455,11 +455,45 @@ interface PaginationInfo {
       white-space: nowrap;
       direction: rtl;
       unicode-bidi: isolate;
-      text-shadow: 0 0 30px rgba(220, 38, 38, 0.6), 0 0 60px rgba(220, 38, 38, 0.3);
+      text-shadow: 0 0 20px rgba(220, 38, 38, 0.6), 0 0 40px rgba(220, 38, 38, 0.3);
       font-family: 'TheYearofHandicrafts', 'Cairo', 'Amiri', Arial, sans-serif;
       font-weight: 900;
-      letter-spacing: 0.05em;
-      margin-top: 2rem; /* Add extra margin to push text down */
+      letter-spacing: 0.02em;
+      margin-top: 1rem;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    /* Responsive font sizes for mobile */
+    @media (max-width: 640px) {
+      .typewriter-text {
+        font-size: clamp(1.25rem, 5vw, 2rem);
+        letter-spacing: 0.01em;
+        text-shadow: 0 0 15px rgba(220, 38, 38, 0.6), 0 0 30px rgba(220, 38, 38, 0.3);
+        white-space: normal;
+        word-break: break-word;
+        line-height: 1.2;
+        text-align: center;
+        padding: 0 0.5rem;
+      }
+    }
+    
+    @media (min-width: 641px) and (max-width: 768px) {
+      .typewriter-text {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+        letter-spacing: 0.015em;
+        white-space: normal;
+        word-break: break-word;
+        line-height: 1.3;
+        text-align: center;
+      }
+    }
+    
+    @media (min-width: 769px) {
+      .typewriter-text {
+        white-space: nowrap;
+      }
     }
     
     .cursor {
@@ -473,6 +507,25 @@ interface PaginationInfo {
       animation: blink 1s infinite;
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
       border-radius: 1px;
+    }
+    
+    /* Responsive cursor for mobile */
+    @media (max-width: 640px) {
+      .cursor {
+        width: 2px;
+        height: 1em;
+        inset-inline-end: -1px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+      }
+    }
+    
+    @media (min-width: 641px) and (max-width: 768px) {
+      .cursor {
+        width: 2.5px;
+        height: 1.05em;
+        inset-inline-end: -1.5px;
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+      }
     }
     
     @keyframes blink {
