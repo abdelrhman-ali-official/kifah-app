@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 export interface Victim {
   id: number;
@@ -64,7 +65,7 @@ export interface MyVictimsResponse {
 @Injectable({ providedIn: 'root' })
 export class VictimService {
   private readonly http = inject(HttpClient);
-  private readonly baseUrl = '/api/victims'; // proxied to https://kifah.runasp.net
+  private readonly baseUrl = environment.kifah.baseUrl; // Uses environment configuration
 
   getVictims(params: VictimQuery): Observable<VictimsResponse> {
     let httpParams = new HttpParams();
@@ -74,11 +75,21 @@ export class VictimService {
       }
     });
     
+    console.log('VictimService - Environment:', environment.production ? 'production' : 'development');
+    console.log('VictimService - Base URL:', this.baseUrl);
     console.log('VictimService - Making API call with params:', params);
     console.log('VictimService - HTTP params:', httpParams.toString());
     console.log('VictimService - Full URL would be:', `${this.baseUrl}?${httpParams.toString()}`);
     
-    return this.http.get<VictimsResponse>(this.baseUrl, { params: httpParams });
+    return this.http.get<VictimsResponse>(this.baseUrl, { params: httpParams }).pipe(
+      catchError((error) => {
+        console.error('VictimService - API Error:', error);
+        console.error('VictimService - Error URL:', error.url);
+        console.error('VictimService - Error Status:', error.status);
+        console.error('VictimService - Error Message:', error.message);
+        throw error;
+      })
+    );
   }
 
   // Add a method to get all victims without pagination

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 export interface GazaStats {
   killed: {
@@ -25,12 +26,15 @@ export interface VictimStatsData {
   providedIn: 'root'
 })
 export class VictimStatsService {
-  // Use proxy to avoid CORS in dev: /t4p -> https://data.techforpalestine.org
-  private apiUrl = '/t4p/api/v3/summary.min.json';
+  // Use environment configuration for API URL
+  private apiUrl = `${environment.techForPalestine.baseUrl}/summary.min.json`;
 
   constructor(private http: HttpClient) { }
 
   getVictimStats(): Observable<VictimStatsData> {
+    console.log('VictimStatsService - Environment:', environment.production ? 'production' : 'development');
+    console.log('VictimStatsService - API URL:', this.apiUrl);
+    
     return this.http.get<VictimStatsData>(this.apiUrl)
       .pipe(
         retry(2), // Retry up to 2 times on failure
