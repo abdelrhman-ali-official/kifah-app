@@ -90,7 +90,7 @@ function passwordRulesValidator(control: AbstractControl): ValidationErrors | nu
                   <span [class.text-green-400]="e.hasUpper" [class.text-red-400]="!e.hasUpper">uppercase</span> •
                   <span [class.text-green-400]="e.hasLower" [class.text-red-400]="!e.hasLower">lowercase</span> •
                   <span [class.text-green-400]="e.hasDigit" [class.text-red-400]="!e.hasDigit">number</span> •
-                  <span [class.text-green-400]="e.hasSpecial" [class.text-red-400]="!e.hasSpecial">special (!@#$%^&*)</span>
+                  <span [class.text-green-400]="e.hasSpecial" [class.text-red-400]="!e.hasSpecial">special (!&#64;#$%^&*)</span>
                 </div>
               </ng-container>
             </div>
