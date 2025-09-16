@@ -467,43 +467,29 @@ interface PaginationInfo {
     }
     
     /* Responsive font sizes for mobile */
-    @media (max-width: 640px) {
-      .typewriter-text {
-        font-size: clamp(1rem, 4vw, 1.5rem);
-        letter-spacing: 0.01em;
-        text-shadow: 0 0 15px rgba(220, 38, 38, 0.6), 0 0 30px rgba(220, 38, 38, 0.3);
-        transform: scale(0.85);
-        transform-origin: center;
-        white-space: nowrap;
-        padding: 0 1rem;
-      }
-    }
-    
-    @media (min-width: 641px) and (max-width: 768px) {
-      .typewriter-text {
-        font-size: clamp(1.2rem, 5vw, 2rem);
-        letter-spacing: 0.015em;
-        transform: scale(0.9);
-        transform-origin: center;
-        white-space: nowrap;
-      }
-    }
-    
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .typewriter-text {
-        font-size: clamp(1.8rem, 6vw, 2.5rem);
-        transform: scale(0.95);
-        transform-origin: center;
-        white-space: nowrap;
-      }
-    }
-    
-    @media (min-width: 1025px) {
-      .typewriter-text {
-        white-space: nowrap;
-        transform: scale(1);
-      }
-    }
+   
+
+/* Small devices (mobile) */
+@media (max-width: 640px) {
+  .typewriter-text {
+    font-size: clamp(1rem, 5vw, 1.4rem);
+  }
+}
+
+/* Tablets */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .typewriter-text {
+    font-size: clamp(1.4rem, 4.5vw, 2rem);
+  }
+}
+
+/* Large screens */
+@media (min-width: 1025px) {
+  .typewriter-text {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+  }
+}
+
     
     .cursor {
       position: absolute;
