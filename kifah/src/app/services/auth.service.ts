@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface LoginRequest {
   email: string;
@@ -26,8 +27,8 @@ export interface RegisterRequest {
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private readonly http = inject(HttpClient);
-  // Use relative path to work with Angular dev-server proxy in development
-  private readonly baseUrl = '/api/authentication';
+  // Use environment configuration to dynamically set the base URL
+  private readonly baseUrl = `${environment.apiUrl}/authentication`;
 
   private readonly storageKeys = {
     token: 'auth_token',
