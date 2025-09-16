@@ -46,7 +46,7 @@ interface PaginationInfo {
       
       <div class="container mx-auto px-2 sm:px-4 md:px-6 lg:px-8 text-center relative z-10 pb-20 sm:pb-24 md:pb-32 pt-6 sm:pt-8 md:pt-12 lg:pt-16">>
         <!-- Enhanced Arabic Text with Typewriter Effect -->
-        <div class="mb-16 md:mb-20 mt-16 md:mt-24 lg:mt-32 px-2 sm:px-4">
+        <div class="mb-16 md:mb-20 mt-16 md:mt-24 lg:mt-32 px-4 sm:px-6 overflow-hidden">
           <h2 
             class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-custom text-white mb-4 md:mb-6 min-h-[3rem] sm:min-h-[3.5rem] md:min-h-[4.5rem] flex items-center justify-center"
             [@fadeInUp]
@@ -55,7 +55,7 @@ interface PaginationInfo {
               {{ displayText }}<span class="cursor"></span>
             </span>
           </h2>
-          <p class="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4" [@fadeInUp]>
+          <p class="text-gray-300 text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4" [@fadeInUp]>
             Search for victims, remember their stories, honor their memory
           </p>
         </div>
@@ -461,38 +461,47 @@ interface PaginationInfo {
       letter-spacing: 0.02em;
       margin-top: 1rem;
       max-width: 100%;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      overflow: visible;
+      transform: scale(1);
+      transform-origin: center;
     }
     
     /* Responsive font sizes for mobile */
     @media (max-width: 640px) {
       .typewriter-text {
-        font-size: clamp(1.25rem, 5vw, 2rem);
+        font-size: clamp(1rem, 4vw, 1.5rem);
         letter-spacing: 0.01em;
         text-shadow: 0 0 15px rgba(220, 38, 38, 0.6), 0 0 30px rgba(220, 38, 38, 0.3);
-        white-space: normal;
-        word-break: break-word;
-        line-height: 1.2;
-        text-align: center;
-        padding: 0 0.5rem;
+        transform: scale(0.85);
+        transform-origin: center;
+        white-space: nowrap;
+        padding: 0 1rem;
       }
     }
     
     @media (min-width: 641px) and (max-width: 768px) {
       .typewriter-text {
-        font-size: clamp(1.5rem, 6vw, 2.5rem);
+        font-size: clamp(1.2rem, 5vw, 2rem);
         letter-spacing: 0.015em;
-        white-space: normal;
-        word-break: break-word;
-        line-height: 1.3;
-        text-align: center;
+        transform: scale(0.9);
+        transform-origin: center;
+        white-space: nowrap;
       }
     }
     
-    @media (min-width: 769px) {
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .typewriter-text {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+        transform: scale(0.95);
+        transform-origin: center;
+        white-space: nowrap;
+      }
+    }
+    
+    @media (min-width: 1025px) {
       .typewriter-text {
         white-space: nowrap;
+        transform: scale(1);
       }
     }
     
