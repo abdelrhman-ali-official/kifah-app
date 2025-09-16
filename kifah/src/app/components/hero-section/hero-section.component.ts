@@ -44,7 +44,7 @@ interface PaginationInfo {
       <!-- Add spacing to push content down -->
       <div class="pt-12 sm:pt-16 md:pt-20 lg:pt-24"></div>
       
-      <div class="container mx-auto px-2 sm:px-4 md:px-6 lg:px-8 text-center relative z-10 pb-20 sm:pb-24 md:pb-32 pt-6 sm:pt-8 md:pt-12 lg:pt-16">>
+      <div class="container mx-auto px-2 sm:px-4 md:px-6 lg:px-8 text-center relative z-10 pb-20 sm:pb-24 md:pb-32 pt-6 sm:pt-8 md:pt-12 lg:pt-16">
         <!-- Enhanced Arabic Text with Typewriter Effect -->
         <div class="mb-16 md:mb-20 mt-16 md:mt-24 lg:mt-32 px-4 sm:px-6 overflow-hidden">
           <h2 
