@@ -581,381 +581,641 @@ interface StatCard {
     }
 
     .blood-drips {
-      @apply absolute -bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4;
+      @apply absolute -bottom-4 left-1/2 transform -translate-x-1/2;
       overflow: visible;
+      width: 60px;
+      height: 60px;
     }
 
     .blood-drip {
-      @apply relative opacity-80;
-      will-change: transform, opacity;
+      @apply absolute;
+      will-change: transform, opacity, height, width;
+      filter: blur(0.3px) contrast(1.2) saturate(1.3);
     }
 
+    /* Realistic blood drip physics - slow buildup, fast drop */
     .blood-drip-1 {
-      @apply w-1;
+      left: 15px;
+      top: 0;
+      width: 3px;
       height: 0;
-      background: linear-gradient(to bottom, #dc2626 0%, #991b1b 60%, #7f1d1d 100%);
-      border-radius: 0 0 50% 50%;
-      animation: bloodDripRealistic1 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+      background: 
+        radial-gradient(ellipse at top, #8b0000 0%, #660000 30%, #4a0000 70%, #330000 100%),
+        linear-gradient(to bottom, #cc1f1f 0%, #aa1818 20%, #881111 50%, #660a0a 80%, #440505 100%);
+      border-radius: 0 0 100% 100%;
+      box-shadow: 
+        inset 0 2px 4px rgba(0,0,0,0.3),
+        0 0 2px rgba(139,0,0,0.5);
+      animation: realBloodDrip1 8s cubic-bezier(0.1, 0.7, 0.1, 1) infinite;
       animation-delay: 0s;
     }
 
     .blood-drip-2 {
-      @apply w-2;
+      left: 25px;
+      top: 0;
+      width: 4px;
       height: 0;
-      background: linear-gradient(to bottom, #dc2626 0%, #991b1b 70%, #7f1d1d 100%);
-      border-radius: 0 0 60% 60%;
-      animation: bloodDripRealistic2 5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
-      animation-delay: 1.2s;
-    }
-
-    .blood-drip-3 {
-      @apply w-1;
-      height: 0;
-      background: linear-gradient(to bottom, #dc2626 0%, #991b1b 65%, #7f1d1d 100%);
-      border-radius: 0 0 45% 45%;
-      animation: bloodDripRealistic3 3.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+      background: 
+        radial-gradient(ellipse at top, #8b0000 0%, #660000 25%, #4a0000 65%, #330000 100%),
+        linear-gradient(to bottom, #dc1f1f 0%, #bb1515 15%, #991010 40%, #770b0b 70%, #550606 95%, #330303 100%);
+      border-radius: 0 0 100% 100%;
+      box-shadow: 
+        inset 0 3px 6px rgba(0,0,0,0.4),
+        0 0 3px rgba(139,0,0,0.6);
+      animation: realBloodDrip2 12s cubic-bezier(0.05, 0.8, 0.1, 1) infinite;
       animation-delay: 2.5s;
     }
 
-    .blood-drip-4 {
-      @apply w-1;
+    .blood-drip-3 {
+      left: 35px;
+      top: 0;
+      width: 2px;
       height: 0;
-      background: linear-gradient(to bottom, #ef4444 0%, #dc2626 50%, #991b1b 100%);
-      border-radius: 0 0 40% 40%;
-      animation: bloodDripRealistic4 4.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
-      animation-delay: 0.8s;
+      background: 
+        radial-gradient(ellipse at top, #8b0000 0%, #660000 35%, #4a0000 75%, #330000 100%),
+        linear-gradient(to bottom, #cc1a1a 0%, #aa1414 25%, #880e0e 55%, #660909 85%, #440404 100%);
+      border-radius: 0 0 100% 100%;
+      box-shadow: 
+        inset 0 1px 3px rgba(0,0,0,0.25),
+        0 0 1px rgba(139,0,0,0.4);
+      animation: realBloodDrip3 6s cubic-bezier(0.15, 0.6, 0.15, 1) infinite;
+      animation-delay: 5s;
+    }
+
+    .blood-drip-4 {
+      left: 8px;
+      top: 0;
+      width: 2px;
+      height: 0;
+      background: 
+        radial-gradient(ellipse at top, #8b0000 0%, #660000 30%, #4a0000 70%, #330000 100%),
+        linear-gradient(to bottom, #cc2020 0%, #aa1717 20%, #881212 50%, #660c0c 80%, #440606 100%);
+      border-radius: 0 0 100% 100%;
+      box-shadow: 
+        inset 0 1px 2px rgba(0,0,0,0.2),
+        0 0 1px rgba(139,0,0,0.3);
+      animation: realBloodDrip4 10s cubic-bezier(0.08, 0.75, 0.12, 1) infinite;
+      animation-delay: 7.2s;
     }
 
     .blood-drip-5 {
-      @apply w-1;
+      left: 45px;
+      top: 0;
+      width: 3px;
       height: 0;
-      background: linear-gradient(to bottom, #dc2626 0%, #b91c1c 40%, #991b1b 80%, #7f1d1d 100%);
-      border-radius: 0 0 55% 55%;
-      animation: bloodDripRealistic5 6s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+      background: 
+        radial-gradient(ellipse at top, #8b0000 0%, #660000 28%, #4a0000 68%, #330000 100%),
+        linear-gradient(to bottom, #d41f1f 0%, #b31616 18%, #921111 45%, #710d0d 75%, #500707 95%, #330404 100%);
+      border-radius: 0 0 100% 100%;
+      box-shadow: 
+        inset 0 2px 5px rgba(0,0,0,0.35),
+        0 0 2px rgba(139,0,0,0.45);
+      animation: realBloodDrip5 14s cubic-bezier(0.04, 0.85, 0.08, 1) infinite;
       animation-delay: 3.8s;
     }
 
-    /* Individual keyframes for each drip to create variety */
-    @keyframes bloodDripRealistic1 {
+    /* Ultra-realistic blood drip physics */
+    @keyframes realBloodDrip1 {
+      /* Slow accumulation phase - blood gathering */
+      0%, 25% { 
+        height: 0; 
+        transform: translateY(0) scaleY(0) scaleX(1);
+        opacity: 0;
+      }
+      /* Blood starts forming */
+      30% {
+        height: 2px;
+        transform: translateY(0) scaleY(0.4) scaleX(1.1);
+        opacity: 0.6;
+      }
+      /* Accumulation - surface tension holding */
+      35% {
+        height: 4px;
+        transform: translateY(0) scaleY(0.7) scaleX(1.2);
+        opacity: 0.8;
+      }
+      40% {
+        height: 8px;
+        transform: translateY(0) scaleY(1.0) scaleX(1.3);
+        opacity: 0.9;
+      }
+      /* Critical mass - about to drop */
+      45% {
+        height: 12px;
+        transform: translateY(0) scaleY(1.2) scaleX(1.4);
+        opacity: 1;
+      }
+      /* Surface tension breaks - rapid elongation */
+      50% {
+        height: 18px;
+        transform: translateY(2px) scaleY(1.5) scaleX(1.1);
+        opacity: 1;
+      }
+      55% {
+        height: 28px;
+        transform: translateY(6px) scaleY(2.0) scaleX(0.9);
+        opacity: 0.95;
+      }
+      /* Free fall - accelerating */
+      60% {
+        height: 40px;
+        transform: translateY(12px) scaleY(2.8) scaleX(0.8);
+        opacity: 0.9;
+      }
+      65% {
+        height: 48px;
+        transform: translateY(20px) scaleY(3.2) scaleX(0.7);
+        opacity: 0.85;
+      }
+      /* Impact and dispersion */
+      70% {
+        height: 45px;
+        transform: translateY(30px) scaleY(2.8) scaleX(0.9);
+        opacity: 0.7;
+      }
+      75% {
+        height: 35px;
+        transform: translateY(38px) scaleY(2.0) scaleX(1.2);
+        opacity: 0.5;
+      }
+      /* Fade out */
+      85% {
+        height: 20px;
+        transform: translateY(42px) scaleY(1.2) scaleX(1.5);
+        opacity: 0.3;
+      }
+      100% {
+        height: 0;
+        transform: translateY(45px) scaleY(0) scaleX(1);
+        opacity: 0;
+      }
+    }
+
+    @keyframes realBloodDrip2 {
+      0%, 20% { 
+        height: 0; 
+        transform: translateY(0) scaleY(0) scaleX(1);
+        opacity: 0;
+      }
+      25% {
+        height: 3px;
+        transform: translateY(0) scaleY(0.5) scaleX(1.2);
+        opacity: 0.7;
+      }
+      30% {
+        height: 6px;
+        transform: translateY(0) scaleY(0.8) scaleX(1.3);
+        opacity: 0.85;
+      }
+      35% {
+        height: 10px;
+        transform: translateY(0) scaleY(1.1) scaleX(1.4);
+        opacity: 0.95;
+      }
+      40% {
+        height: 16px;
+        transform: translateY(0) scaleY(1.4) scaleX(1.5);
+        opacity: 1;
+      }
+      45% {
+        height: 24px;
+        transform: translateY(1px) scaleY(1.8) scaleX(1.2);
+        opacity: 1;
+      }
+      50% {
+        height: 35px;
+        transform: translateY(4px) scaleY(2.5) scaleX(1.0);
+        opacity: 0.98;
+      }
+      55% {
+        height: 50px;
+        transform: translateY(9px) scaleY(3.5) scaleX(0.8);
+        opacity: 0.95;
+      }
+      60% {
+        height: 65px;
+        transform: translateY(16px) scaleY(4.2) scaleX(0.7);
+        opacity: 0.9;
+      }
+      65% {
+        height: 75px;
+        transform: translateY(25px) scaleY(4.8) scaleX(0.6);
+        opacity: 0.85;
+      }
+      70% {
+        height: 70px;
+        transform: translateY(35px) scaleY(4.2) scaleX(0.8);
+        opacity: 0.75;
+      }
+      75% {
+        height: 55px;
+        transform: translateY(45px) scaleY(3.2) scaleX(1.1);
+        opacity: 0.6;
+      }
+      80% {
+        height: 40px;
+        transform: translateY(52px) scaleY(2.2) scaleX(1.4);
+        opacity: 0.4;
+      }
+      90% {
+        height: 20px;
+        transform: translateY(56px) scaleY(1.0) scaleX(1.8);
+        opacity: 0.2;
+      }
+      100% {
+        height: 0;
+        transform: translateY(60px) scaleY(0) scaleX(1);
+        opacity: 0;
+      }
+    }
+
+    @keyframes realBloodDrip3 {
+      0%, 30% { 
+        height: 0; 
+        transform: translateY(0) scaleY(0) scaleX(1);
+        opacity: 0;
+      }
+      35% {
+        height: 2px;
+        transform: translateY(0) scaleY(0.3) scaleX(1.1);
+        opacity: 0.5;
+      }
+      40% {
+        height: 5px;
+        transform: translateY(0) scaleY(0.7) scaleX(1.2);
+        opacity: 0.8;
+      }
+      45% {
+        height: 9px;
+        transform: translateY(0) scaleY(1.1) scaleX(1.3);
+        opacity: 0.95;
+      }
+      50% {
+        height: 15px;
+        transform: translateY(1px) scaleY(1.6) scaleX(1.1);
+        opacity: 1;
+      }
+      55% {
+        height: 24px;
+        transform: translateY(3px) scaleY(2.3) scaleX(0.9);
+        opacity: 0.95;
+      }
+      60% {
+        height: 32px;
+        transform: translateY(7px) scaleY(2.8) scaleX(0.8);
+        opacity: 0.9;
+      }
+      65% {
+        height: 36px;
+        transform: translateY(13px) scaleY(3.0) scaleX(0.7);
+        opacity: 0.85;
+      }
+      70% {
+        height: 32px;
+        transform: translateY(20px) scaleY(2.6) scaleX(0.9);
+        opacity: 0.7;
+      }
+      80% {
+        height: 22px;
+        transform: translateY(26px) scaleY(1.8) scaleX(1.2);
+        opacity: 0.5;
+      }
+      90% {
+        height: 12px;
+        transform: translateY(30px) scaleY(1.0) scaleX(1.5);
+        opacity: 0.3;
+      }
+      100% {
+        height: 0;
+        transform: translateY(32px) scaleY(0) scaleX(1);
+        opacity: 0;
+      }
+    }
+
+    @keyframes realBloodDrip4 {
+      0%, 35% { 
+        height: 0; 
+        transform: translateY(0) scaleY(0) scaleX(1);
+        opacity: 0;
+      }
+      40% {
+        height: 2px;
+        transform: translateY(0) scaleY(0.4) scaleX(1.15);
+        opacity: 0.6;
+      }
+      45% {
+        height: 6px;
+        transform: translateY(0) scaleY(0.9) scaleX(1.25);
+        opacity: 0.85;
+      }
+      50% {
+        height: 12px;
+        transform: translateY(0) scaleY(1.4) scaleX(1.3);
+        opacity: 1;
+      }
+      55% {
+        height: 20px;
+        transform: translateY(2px) scaleY(2.0) scaleX(1.1);
+        opacity: 0.98;
+      }
+      60% {
+        height: 30px;
+        transform: translateY(5px) scaleY(2.8) scaleX(0.9);
+        opacity: 0.95;
+      }
+      65% {
+        height: 42px;
+        transform: translateY(10px) scaleY(3.6) scaleX(0.8);
+        opacity: 0.9;
+      }
+      70% {
+        height: 50px;
+        transform: translateY(17px) scaleY(4.2) scaleX(0.7);
+        opacity: 0.85;
+      }
+      75% {
+        height: 48px;
+        transform: translateY(26px) scaleY(3.8) scaleX(0.8);
+        opacity: 0.75;
+      }
+      80% {
+        height: 38px;
+        transform: translateY(35px) scaleY(2.8) scaleX(1.0);
+        opacity: 0.6;
+      }
+      85% {
+        height: 25px;
+        transform: translateY(42px) scaleY(1.8) scaleX(1.3);
+        opacity: 0.4;
+      }
+      95% {
+        height: 10px;
+        transform: translateY(46px) scaleY(0.8) scaleX(1.6);
+        opacity: 0.2;
+      }
+      100% {
+        height: 0;
+        transform: translateY(48px) scaleY(0) scaleX(1);
+        opacity: 0;
+      }
+    }
+
+    @keyframes realBloodDrip5 {
       0%, 15% { 
         height: 0; 
-        transform: translateY(0) scaleY(0);
+        transform: translateY(0) scaleY(0) scaleX(1);
         opacity: 0;
       }
       20% {
-        height: 2px;
-        transform: translateY(0) scaleY(0.3);
-        opacity: 0.4;
-      }
-      25% {
-        height: 6px;
-        transform: translateY(0) scaleY(0.7);
-        opacity: 0.7;
-      }
-      35% {
-        height: 12px;
-        transform: translateY(2px) scaleY(1);
-        opacity: 1;
-      }
-      45% {
-        height: 18px;
-        transform: translateY(4px) scaleY(1.1);
-        opacity: 1;
-      }
-      55% {
-        height: 24px;
-        transform: translateY(6px) scaleY(1.2);
-        opacity: 0.9;
-      }
-      65% {
-        height: 28px;
-        transform: translateY(8px) scaleY(1.15);
-        opacity: 0.8;
-      }
-      75% {
-        height: 32px;
-        transform: translateY(12px) scaleY(1.1);
-        opacity: 0.6;
-      }
-      85% {
-        height: 28px;
-        transform: translateY(16px) scaleY(0.9);
-        opacity: 0.4;
-      }
-      95% {
-        height: 12px;
-        transform: translateY(20px) scaleY(0.5);
-        opacity: 0.2;
-      }
-      100% {
-        height: 0;
-        transform: translateY(24px) scaleY(0);
-        opacity: 0;
-      }
-    }
-
-    @keyframes bloodDripRealistic2 {
-      0%, 12% { 
-        height: 0; 
-        transform: translateY(0) scaleY(0);
-        opacity: 0;
-      }
-      18% {
         height: 3px;
-        transform: translateY(0) scaleY(0.4);
-        opacity: 0.5;
-      }
-      28% {
-        height: 10px;
-        transform: translateY(1px) scaleY(0.8);
-        opacity: 0.8;
-      }
-      38% {
-        height: 20px;
-        transform: translateY(3px) scaleY(1.1);
-        opacity: 1;
-      }
-      48% {
-        height: 32px;
-        transform: translateY(6px) scaleY(1.3);
-        opacity: 1;
-      }
-      58% {
-        height: 42px;
-        transform: translateY(10px) scaleY(1.4);
-        opacity: 0.95;
-      }
-      68% {
-        height: 48px;
-        transform: translateY(14px) scaleY(1.35);
-        opacity: 0.85;
-      }
-      78% {
-        height: 44px;
-        transform: translateY(18px) scaleY(1.2);
-        opacity: 0.7;
-      }
-      88% {
-        height: 32px;
-        transform: translateY(22px) scaleY(0.9);
-        opacity: 0.4;
-      }
-      96% {
-        height: 16px;
-        transform: translateY(26px) scaleY(0.6);
-        opacity: 0.2;
-      }
-      100% {
-        height: 0;
-        transform: translateY(30px) scaleY(0);
-        opacity: 0;
-      }
-    }
-
-    @keyframes bloodDripRealistic3 {
-      0%, 20% { 
-        height: 0; 
-        transform: translateY(0) scaleY(0);
-        opacity: 0;
-      }
-      25% {
-        height: 2px;
-        transform: translateY(0) scaleY(0.3);
-        opacity: 0.3;
-      }
-      35% {
-        height: 8px;
-        transform: translateY(1px) scaleY(0.9);
-        opacity: 0.7;
-      }
-      45% {
-        height: 16px;
-        transform: translateY(3px) scaleY(1.2);
-        opacity: 1;
-      }
-      55% {
-        height: 22px;
-        transform: translateY(5px) scaleY(1.25);
-        opacity: 0.9;
-      }
-      65% {
-        height: 26px;
-        transform: translateY(8px) scaleY(1.2);
-        opacity: 0.8;
-      }
-      75% {
-        height: 24px;
-        transform: translateY(12px) scaleY(1.0);
+        transform: translateY(0) scaleY(0.4) scaleX(1.2);
         opacity: 0.6;
       }
-      85% {
-        height: 18px;
-        transform: translateY(16px) scaleY(0.8);
-        opacity: 0.4;
-      }
-      95% {
-        height: 8px;
-        transform: translateY(18px) scaleY(0.5);
-        opacity: 0.2;
-      }
-      100% {
-        height: 0;
-        transform: translateY(20px) scaleY(0);
-        opacity: 0;
-      }
-    }
-
-    @keyframes bloodDripRealistic4 {
-      0%, 8% { 
-        height: 0; 
-        transform: translateY(0) scaleY(0);
-        opacity: 0;
-      }
-      15% {
-        height: 1px;
-        transform: translateY(0) scaleY(0.2);
-        opacity: 0.4;
-      }
       25% {
-        height: 5px;
-        transform: translateY(0) scaleY(0.6);
-        opacity: 0.6;
-      }
-      35% {
-        height: 12px;
-        transform: translateY(2px) scaleY(1.0);
-        opacity: 0.9;
-      }
-      45% {
-        height: 20px;
-        transform: translateY(4px) scaleY(1.2);
-        opacity: 1;
-      }
-      55% {
-        height: 26px;
-        transform: translateY(7px) scaleY(1.25);
-        opacity: 0.95;
-      }
-      65% {
-        height: 30px;
-        transform: translateY(10px) scaleY(1.2);
-        opacity: 0.85;
-      }
-      75% {
-        height: 28px;
-        transform: translateY(14px) scaleY(1.1);
-        opacity: 0.7;
-      }
-      85% {
-        height: 22px;
-        transform: translateY(17px) scaleY(0.9);
-        opacity: 0.5;
-      }
-      95% {
-        height: 10px;
-        transform: translateY(20px) scaleY(0.6);
-        opacity: 0.3;
-      }
-      100% {
-        height: 0;
-        transform: translateY(22px) scaleY(0);
-        opacity: 0;
-      }
-    }
-
-    @keyframes bloodDripRealistic5 {
-      0%, 10% { 
-        height: 0; 
-        transform: translateY(0) scaleY(0);
-        opacity: 0;
-      }
-      16% {
-        height: 4px;
-        transform: translateY(0) scaleY(0.5);
-        opacity: 0.5;
-      }
-      26% {
-        height: 12px;
-        transform: translateY(1px) scaleY(0.9);
+        height: 8px;
+        transform: translateY(0) scaleY(0.9) scaleX(1.35);
         opacity: 0.8;
       }
-      36% {
-        height: 24px;
-        transform: translateY(3px) scaleY(1.2);
-        opacity: 1;
-      }
-      46% {
-        height: 36px;
-        transform: translateY(6px) scaleY(1.4);
-        opacity: 1;
-      }
-      56% {
-        height: 48px;
-        transform: translateY(10px) scaleY(1.5);
+      30% {
+        height: 14px;
+        transform: translateY(0) scaleY(1.3) scaleX(1.4);
         opacity: 0.95;
       }
-      66% {
-        height: 54px;
-        transform: translateY(15px) scaleY(1.45);
+      35% {
+        height: 22px;
+        transform: translateY(0) scaleY(1.8) scaleX(1.45);
+        opacity: 1;
+      }
+      40% {
+        height: 32px;
+        transform: translateY(1px) scaleY(2.4) scaleX(1.2);
+        opacity: 1;
+      }
+      45% {
+        height: 45px;
+        transform: translateY(3px) scaleY(3.2) scaleX(1.0);
+        opacity: 0.98;
+      }
+      50% {
+        height: 60px;
+        transform: translateY(7px) scaleY(4.2) scaleX(0.8);
+        opacity: 0.95;
+      }
+      55% {
+        height: 78px;
+        transform: translateY(13px) scaleY(5.4) scaleX(0.7);
+        opacity: 0.9;
+      }
+      60% {
+        height: 92px;
+        transform: translateY(21px) scaleY(6.2) scaleX(0.6);
         opacity: 0.85;
       }
-      76% {
-        height: 50px;
-        transform: translateY(20px) scaleY(1.3);
+      65% {
+        height: 98px;
+        transform: translateY(31px) scaleY(6.5) scaleX(0.55);
+        opacity: 0.8;
+      }
+      70% {
+        height: 90px;
+        transform: translateY(43px) scaleY(5.8) scaleX(0.7);
         opacity: 0.7;
       }
-      86% {
-        height: 40px;
-        transform: translateY(25px) scaleY(1.0);
-        opacity: 0.5;
+      75% {
+        height: 75px;
+        transform: translateY(55px) scaleY(4.8) scaleX(0.9);
+        opacity: 0.6;
       }
-      94% {
-        height: 24px;
-        transform: translateY(28px) scaleY(0.7);
+      80% {
+        height: 55px;
+        transform: translateY(65px) scaleY(3.4) scaleX(1.2);
+        opacity: 0.45;
+      }
+      85% {
+        height: 35px;
+        transform: translateY(72px) scaleY(2.2) scaleX(1.5);
         opacity: 0.3;
+      }
+      95% {
+        height: 15px;
+        transform: translateY(76px) scaleY(1.0) scaleX(1.8);
+        opacity: 0.15;
       }
       100% {
         height: 0;
-        transform: translateY(32px) scaleY(0);
+        transform: translateY(80px) scaleY(0) scaleX(1);
         opacity: 0;
       }
     }
 
     .blood-stain {
-      @apply absolute -bottom-8 left-1/2 w-24 h-8 rounded-full blur-sm;
+      @apply absolute -bottom-8 left-1/2 rounded-full blur-sm;
       transform: translateX(-50%);
-      background: radial-gradient(ellipse, rgba(220, 38, 38, 0.4) 0%, rgba(153, 27, 27, 0.3) 40%, rgba(127, 29, 29, 0.2) 70%, transparent 100%);
-      animation: bloodStainRealistic 8s ease-in-out infinite;
+      width: 40px;
+      height: 12px;
+      background: 
+        radial-gradient(ellipse, 
+          rgba(139, 0, 0, 0.8) 0%, 
+          rgba(102, 0, 0, 0.6) 25%, 
+          rgba(74, 0, 0, 0.4) 50%, 
+          rgba(51, 0, 0, 0.2) 75%, 
+          transparent 100%
+        );
+      filter: blur(1px) contrast(1.3);
+      animation: bloodStainRealistic 16s ease-in-out infinite;
+    }
+
+    /* Additional blood puddle effects */
+    .blood-stain::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -5px;
+      width: 50px;
+      height: 16px;
+      background: 
+        radial-gradient(ellipse, 
+          rgba(139, 0, 0, 0.3) 0%, 
+          rgba(102, 0, 0, 0.2) 40%, 
+          transparent 70%
+        );
+      border-radius: 50%;
+      filter: blur(2px);
+      animation: bloodPuddleSpread 16s ease-in-out infinite;
+    }
+
+    .blood-stain::after {
+      content: '';
+      position: absolute;
+      top: 1px;
+      left: 5px;
+      width: 30px;
+      height: 10px;
+      background: 
+        radial-gradient(ellipse, 
+          rgba(139, 0, 0, 0.4) 0%, 
+          rgba(102, 0, 0, 0.25) 50%, 
+          transparent 80%
+        );
+      border-radius: 50%;
+      filter: blur(0.5px);
+      animation: bloodPuddleDetails 16s ease-in-out infinite;
     }
 
     @keyframes bloodStainRealistic {
-      0%, 15% { 
-        transform: translateX(-50%) scale(0.8); 
-        opacity: 0.2; 
+      0%, 20% { 
+        transform: translateX(-50%) scale(0.5); 
+        opacity: 0.1; 
       }
-      20%, 30% { 
-        transform: translateX(-50%) scale(1.0); 
-        opacity: 0.4; 
+      25% { 
+        transform: translateX(-50%) scale(0.7); 
+        opacity: 0.3; 
       }
-      35%, 45% { 
-        transform: translateX(-50%) scale(1.1); 
+      30% { 
+        transform: translateX(-50%) scale(0.9); 
         opacity: 0.5; 
       }
-      50%, 60% { 
-        transform: translateX(-50%) scale(1.2); 
+      35% { 
+        transform: translateX(-50%) scale(1.1); 
+        opacity: 0.7; 
+      }
+      40% { 
+        transform: translateX(-50%) scale(1.3); 
+        opacity: 0.8; 
+      }
+      45% { 
+        transform: translateX(-50%) scale(1.5); 
+        opacity: 0.85; 
+      }
+      50% { 
+        transform: translateX(-50%) scale(1.7); 
+        opacity: 0.9; 
+      }
+      55% { 
+        transform: translateX(-50%) scale(1.8); 
+        opacity: 0.85; 
+      }
+      60% { 
+        transform: translateX(-50%) scale(1.75); 
+        opacity: 0.8; 
+      }
+      70% { 
+        transform: translateX(-50%) scale(1.6); 
+        opacity: 0.7; 
+      }
+      80% { 
+        transform: translateX(-50%) scale(1.4); 
         opacity: 0.6; 
       }
-      65%, 75% { 
-        transform: translateX(-50%) scale(1.15); 
-        opacity: 0.5; 
-      }
-      80%, 90% { 
-        transform: translateX(-50%) scale(1.05); 
+      90% { 
+        transform: translateX(-50%) scale(1.2); 
         opacity: 0.4; 
       }
-      95%, 100% { 
-        transform: translateX(-50%) scale(0.9); 
+      100% { 
+        transform: translateX(-50%) scale(1.0); 
         opacity: 0.3; 
+      }
+    }
+
+    @keyframes bloodPuddleSpread {
+      0%, 30% { 
+        transform: scale(0.3); 
+        opacity: 0; 
+      }
+      40% { 
+        transform: scale(0.6); 
+        opacity: 0.2; 
+      }
+      50% { 
+        transform: scale(1.0); 
+        opacity: 0.3; 
+      }
+      60% { 
+        transform: scale(1.3); 
+        opacity: 0.25; 
+      }
+      70% { 
+        transform: scale(1.5); 
+        opacity: 0.2; 
+      }
+      80% { 
+        transform: scale(1.4); 
+        opacity: 0.15; 
+      }
+      100% { 
+        transform: scale(1.2); 
+        opacity: 0.1; 
+      }
+    }
+
+    @keyframes bloodPuddleDetails {
+      0%, 35% { 
+        transform: scale(0.2); 
+        opacity: 0; 
+      }
+      45% { 
+        transform: scale(0.7); 
+        opacity: 0.4; 
+      }
+      55% { 
+        transform: scale(1.1); 
+        opacity: 0.5; 
+      }
+      65% { 
+        transform: scale(1.2); 
+        opacity: 0.4; 
+      }
+      75% { 
+        transform: scale(1.15); 
+        opacity: 0.35; 
+      }
+      85% { 
+        transform: scale(1.1); 
+        opacity: 0.3; 
+      }
+      100% { 
+        transform: scale(1.0); 
+        opacity: 0.25; 
       }
     }
 
