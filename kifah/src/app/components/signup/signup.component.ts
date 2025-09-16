@@ -21,76 +21,76 @@ function passwordRulesValidator(control: AbstractControl): ValidationErrors | nu
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterModule],
   template: `
-    <section class="min-h-[80vh] flex items-center justify-center relative overflow-hidden">
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-8">
       <div class="absolute inset-0 bg-black/80"></div>
       <div class="absolute inset-0 backdrop-blur-md"></div>
 
-      <div class="relative z-10 w-full max-w-2xl p-8 rounded-3xl border border-red-500/30 bg-gradient-to-br from-black/70 to-gray-900/70 shadow-[0_20px_60px_rgba(220,38,38,0.25)]">
-        <h2 class="text-center text-3xl font-extrabold text-white arabic-text mb-2">إنشاء حساب</h2>
-        <p class="text-center text-red-300 mb-6 arabic-text">انضم إلى كفاح وكن جزءًا من الصوت</p>
+      <div class="relative z-10 w-full max-w-2xl p-8 rounded-3xl border border-red-500/30 bg-gradient-to-br from-black/70 to-gray-900/70 shadow-[0_20px_60px_rgba(220,38,38,0.25)] my-8">
+        <h2 class="text-center text-3xl font-extrabold text-white mb-2">Create Account</h2>
+        <p class="text-center text-red-300 mb-6">Join Kifah and be part of the voice</p>
 
         <form [formGroup]="form" (ngSubmit)="onSubmit()" class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label class="block text-sm text-gray-300 mb-1 arabic-text">الاسم الأول</label>
-            <input type="text" formControlName="firstName" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-red-500/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500/60" placeholder="محمد" />
-            <div class="mt-1 text-xs text-red-400 arabic-text" *ngIf="submitted && form.controls['firstName'].errors">
-              <span *ngIf="form.controls['firstName'].errors?.['required']">الاسم الأول مطلوب</span>
+            <label class="block text-sm text-gray-300 mb-1">First Name</label>
+            <input type="text" formControlName="firstName" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-red-500/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500/60" placeholder="Mohammed" />
+            <div class="mt-1 text-xs text-red-400" *ngIf="submitted && form.controls['firstName'].errors">
+              <span *ngIf="form.controls['firstName'].errors?.['required']">First name is required</span>
             </div>
           </div>
 
           <div>
-            <label class="block text-sm text-gray-300 mb-1 arabic-text">اسم العائلة</label>
-            <input type="text" formControlName="lastName" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-red-500/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500/60" placeholder="الأنصاري" />
-            <div class="mt-1 text-xs text-red-400 arabic-text" *ngIf="submitted && form.controls['lastName'].errors">
-              <span *ngIf="form.controls['lastName'].errors?.['required']">اسم العائلة مطلوب</span>
+            <label class="block text-sm text-gray-300 mb-1">Last Name</label>
+            <input type="text" formControlName="lastName" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-red-500/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500/60" placeholder="Al-Ansari" />
+            <div class="mt-1 text-xs text-red-400" *ngIf="submitted && form.controls['lastName'].errors">
+              <span *ngIf="form.controls['lastName'].errors?.['required']">Last name is required</span>
             </div>
           </div>
 
           <div>
-            <label class="block text-sm text-gray-300 mb-1 arabic-text">اسم المستخدم</label>
+            <label class="block text-sm text-gray-300 mb-1">Username</label>
             <input type="text" formControlName="userName" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-red-500/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500/60" placeholder="mohammed123" />
-            <div class="mt-1 text-xs text-red-400 arabic-text" *ngIf="submitted && form.controls['userName'].errors">
-              <span *ngIf="form.controls['userName'].errors?.['required']">اسم المستخدم مطلوب</span>
+            <div class="mt-1 text-xs text-red-400" *ngIf="submitted && form.controls['userName'].errors">
+              <span *ngIf="form.controls['userName'].errors?.['required']">Username is required</span>
             </div>
           </div>
 
           <div>
-            <label class="block text-sm text-gray-300 mb-1 arabic-text">رقم الهاتف</label>
+            <label class="block text-sm text-gray-300 mb-1">Phone Number</label>
             <input type="tel" formControlName="phoneNumber" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-red-500/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500/60" placeholder="059xxxxxxx" />
-            <div class="mt-1 text-xs text-red-400 arabic-text" *ngIf="submitted && form.controls['phoneNumber'].errors">
-              <span *ngIf="form.controls['phoneNumber'].errors?.['required']">رقم الهاتف مطلوب</span>
+            <div class="mt-1 text-xs text-red-400" *ngIf="submitted && form.controls['phoneNumber'].errors">
+              <span *ngIf="form.controls['phoneNumber'].errors?.['required']">Phone number is required</span>
             </div>
           </div>
 
           <div class="md:col-span-2">
-            <label class="block text-sm text-gray-300 mb-1 arabic-text">البريد الإلكتروني</label>
+            <label class="block text-sm text-gray-300 mb-1">Email</label>
             <input type="email" formControlName="email" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-red-500/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500/60" placeholder="name@example.com" />
-            <div class="mt-1 text-xs text-red-400 arabic-text" *ngIf="submitted && form.controls['email'].errors">
-              <span *ngIf="form.controls['email'].errors?.['required']">البريد الإلكتروني مطلوب</span>
-              <span *ngIf="form.controls['email'].errors?.['email']">صيغة البريد الإلكتروني غير صحيحة</span>
+            <div class="mt-1 text-xs text-red-400" *ngIf="submitted && form.controls['email'].errors">
+              <span *ngIf="form.controls['email'].errors?.['required']">Email is required</span>
+              <span *ngIf="form.controls['email'].errors?.['email']">Please enter a valid email address</span>
             </div>
           </div>
 
           <div>
-            <label class="block text-sm text-gray-300 mb-1 arabic-text">الجنس</label>
+            <label class="block text-sm text-gray-300 mb-1">Gender</label>
             <select formControlName="gender" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-red-500/30 text-white focus:outline-none focus:ring-2 focus:ring-red-500/60">
-              <option [ngValue]="1">ذكر</option>
-              <option [ngValue]="2">أنثى</option>
+              <option [ngValue]="1">Male</option>
+              <option [ngValue]="2">Female</option>
             </select>
           </div>
 
           <div>
-            <label class="block text-sm text-gray-300 mb-1 arabic-text">كلمة المرور</label>
+            <label class="block text-sm text-gray-300 mb-1">Password</label>
             <input type="password" formControlName="password" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-red-500/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500/60" placeholder="••••••••" />
-            <div class="mt-1 text-xs text-red-400 arabic-text" *ngIf="submitted && form.controls['password'].errors">
-              <ng-container *ngIf="form.controls['password'].errors?.['required']">كلمة المرور مطلوبة</ng-container>
+            <div class="mt-1 text-xs text-red-400" *ngIf="submitted && form.controls['password'].errors">
+              <ng-container *ngIf="form.controls['password'].errors?.['required']">Password is required</ng-container>
               <ng-container *ngIf="form.controls['password'].errors?.['passwordRules'] as e">
-                <div>يجب أن تحتوي على:
-                  <span [class.text-green-400]="e.hasMin" [class.text-red-400]="!e.hasMin">٨ أحرف على الأقل</span> •
-                  <span [class.text-green-400]="e.hasUpper" [class.text-red-400]="!e.hasUpper">حرف كبير</span> •
-                  <span [class.text-green-400]="e.hasLower" [class.text-red-400]="!e.hasLower">حرف صغير</span> •
-                  <span [class.text-green-400]="e.hasDigit" [class.text-red-400]="!e.hasDigit">رقم</span> •
-                  <span [class.text-green-400]="e.hasSpecial" [class.text-red-400]="!e.hasSpecial">رمز خاص !&#64;#$%^&*</span>
+                <div>Password must contain:
+                  <span [class.text-green-400]="e.hasMin" [class.text-red-400]="!e.hasMin">8+ characters</span> •
+                  <span [class.text-green-400]="e.hasUpper" [class.text-red-400]="!e.hasUpper">uppercase</span> •
+                  <span [class.text-green-400]="e.hasLower" [class.text-red-400]="!e.hasLower">lowercase</span> •
+                  <span [class.text-green-400]="e.hasDigit" [class.text-red-400]="!e.hasDigit">number</span> •
+                  <span [class.text-green-400]="e.hasSpecial" [class.text-red-400]="!e.hasSpecial">special (!@#$%^&*)</span>
                 </div>
               </ng-container>
             </div>
@@ -98,20 +98,20 @@ function passwordRulesValidator(control: AbstractControl): ValidationErrors | nu
 
           <div class="md:col-span-2">
             <button type="submit" [disabled]="loading" class="w-full py-3 rounded-xl bg-gradient-to-r from-red-700 via-red-600 to-red-700 text-white font-bold shadow-[0_10px_30px_rgba(220,38,38,0.35)] hover:from-red-600 hover:to-red-800 transition-all">
-              {{ loading ? 'جاري إنشاء الحساب...' : 'إنشاء حساب' }}
+              {{ loading ? 'Creating Account...' : 'Create Account' }}
             </button>
           </div>
         </form>
 
-        <div class="text-center mt-6 text-sm text-gray-300 arabic-text">
-          لديك حساب؟
-          <a class="text-red-400 hover:text-red-300 font-semibold" [routerLink]="['/login']">تسجيل الدخول</a>
+        <div class="text-center mt-6 text-sm text-gray-300">
+          Already have an account?
+          <a class="text-red-400 hover:text-red-300 font-semibold" [routerLink]="['/login']">Sign In</a>
         </div>
       </div>
     </section>
   `,
   styles: [`
-    .arabic-text { font-family: 'Cairo', 'Amiri', 'Tajawal', 'Noto Sans Arabic', Arial, sans-serif; direction: rtl; }
+    /* Additional component-specific styles can be added here */
   `]
 })
 export class SignUpComponent {
