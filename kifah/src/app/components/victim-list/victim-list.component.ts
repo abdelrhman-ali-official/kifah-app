@@ -185,7 +185,7 @@ import { VictimService, VictimsResponse, Victim, VictimQuery } from '../../servi
                 <svg class="w-4 h-4 mr-3 text-red-400 filter drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                 </svg>
-                <span class="font-medium">{{ victim.eventDate | date:'mediumDate' }}</span>
+                <span class="font-medium">{{ getEventDateDisplay(victim.eventDate) }}</span>
               </div>
 
               <div class="flex items-center text-sm text-gray-200 bg-black/20 backdrop-blur-sm rounded-lg p-3 border border-white/10 transition-all duration-300 hover:bg-black/30 hover:border-red-500/30" *ngIf="victim.gender">
@@ -548,6 +548,28 @@ export class VictimListComponent implements OnInit {
         return 'Male';
       default:
         return gender;
+    }
+  }
+
+  // Helper function to display event date with "Unknown" for dates before 2023
+  getEventDateDisplay(eventDate: string): string {
+    if (!eventDate) return '';
+    
+    try {
+      const date = new Date(eventDate);
+      if (isNaN(date.getTime())) return '';
+      
+      // If date is before 2023, show "Unknown"
+      if (date.getFullYear() < 2023) return 'Unknown';
+      
+      // Format the date for display
+      return date.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'short', 
+        day: 'numeric' 
+      });
+    } catch (error) {
+      return '';
     }
   }
 }

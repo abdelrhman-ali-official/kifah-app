@@ -535,6 +535,9 @@ export class VictimCardComponent implements AfterViewInit {
       const date = new Date(this.victim.eventDate);
       if (isNaN(date.getTime())) return '—';
       
+      // If date is before 2023, show "Unknown"
+      if (date.getFullYear() < 2023) return 'Unknown';
+      
       const now = new Date();
       const diffInDays = Math.floor((now.getTime() - date.getTime()) / (1000 * 60 * 60 * 24));
       

@@ -82,7 +82,7 @@ import { VictimService, Victim, VictimsResponse } from '../../services/victim.se
               <span *ngIf="victim.district">, {{ victim.district }}</span>
             </div>
             <div *ngIf="victim.eventDate">
-              <span class="font-medium">Date:</span> {{ victim.eventDate | date:'MMM dd, yyyy' }}
+              <span class="font-medium">Date:</span> {{ getEventDateDisplay(victim.eventDate) }}
             </div>
           </div>
         </div>
@@ -293,5 +293,27 @@ export class VictimListSimpleComponent implements OnInit {
     console.log(`Navigating to victim ${id}`);
     // Navigate to victim detail page
     // this.router.navigate(['/victim', id]);
+  }
+
+  // Helper function to display event date with "Unknown" for dates before 2023
+  getEventDateDisplay(eventDate: string): string {
+    if (!eventDate) return '';
+    
+    try {
+      const date = new Date(eventDate);
+      if (isNaN(date.getTime())) return '';
+      
+      // If date is before 2023, show "Unknown"
+      if (date.getFullYear() < 2023) return 'Unknown';
+      
+      // Format the date for display
+      return date.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'short', 
+        day: 'numeric' 
+      });
+    } catch (error) {
+      return '';
+    }
   }
 }
