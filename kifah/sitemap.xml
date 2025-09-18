@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Homepage - Main entry point -->
+  <url>
+    <loc>https://www.kifah.tech/</loc>
+    <lastmod>2025-09-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Victims Memorial Page - Core content -->
+  <url>
+    <loc>https://www.kifah.tech/victims</loc>
+    <lastmod>2025-09-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- About Page - Organization information -->
+  <url>
+    <loc>https://www.kifah.tech/about</loc>
+    <lastmod>2025-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Contact Page - Communication channel -->
+  <url>
+    <loc>https://www.kifah.tech/contact</loc>
+    <lastmod>2025-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Home Page (alternative route) -->
+  <url>
+    <loc>https://www.kifah.tech/home</loc>
+    <lastmod>2025-09-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Victim Statistics Page - Data insights -->
+  <url>
+    <loc>https://www.kifah.tech/stats</loc>
+    <lastmod>2025-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Submit Victim Page - Community contribution -->
+  <url>
+    <loc>https://www.kifah.tech/victims/submit</loc>
+    <lastmod>2025-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Simple Victims List - Alternative view -->
+  <url>
+    <loc>https://www.kifah.tech/victims/simple</loc>
+    <lastmod>2025-09-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 
+    Dynamic victim detail pages will be indexed as they are discovered
+    Format: https://www.kifah.tech/victim/{id}
+    These pages have high value for memorial purposes and should be
+    indexed with priority 0.8 and changefreq 'weekly'
+    
+    Example victim pages (to be dynamically generated):
+    - https://www.kifah.tech/victim/1
+    - https://www.kifah.tech/victim/2
+    - etc.
+  -->
+
+  
+
+</urlset>

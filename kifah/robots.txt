@@ -1,0 +1,81 @@
+# Robots.txt for Kifah.tech - Gaza Victims Memorial Website
+# Last Updated: September 2025
+# Website: https://www.kifah.tech
+
+# Allow all major search engine crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# General rules for all other crawlers
+User-agent: *
+Allow: /
+
+# Disallow sensitive and unnecessary paths
+Disallow: /assets/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /.git/
+Disallow: /.angular/
+Disallow: /dist/
+Disallow: /tmp/
+Disallow: /private/
+Disallow: /auth/
+Disallow: /login/
+Disallow: /signup/
+
+# Allow specific assets that are important for SEO
+Allow: /assets/logo.png
+Allow: /assets/black-logo.png
+Allow: /assets/k.png
+Allow: /favicon.ico
+
+# Crawl delay for slower bots to prevent server overload
+User-agent: ia_archiver
+Crawl-delay: 10
+
+User-agent: Wayback
+Crawl-delay: 10
+
+User-agent: AhrefsBot
+Crawl-delay: 30
+
+User-agent: MJ12bot
+Crawl-delay: 30
+
+User-agent: SemrushBot
+Crawl-delay: 30
+
+# Sitemap location
+Sitemap: https://www.kifah.tech/sitemap.xml
+
+# Additional metadata
+# This robots.txt file is optimized for the Kifah memorial website
+# to ensure proper indexing of victim memorial pages while protecting
+# sensitive administrative and API endpoints.
