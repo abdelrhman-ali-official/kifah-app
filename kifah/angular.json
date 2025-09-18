@@ -28,7 +28,18 @@
               "src/favicon.ico",
               "src/assets",
               "src/img",
-              "src/fonts"
+              "src/fonts",
+              {
+                "glob": "sitemap.xml",
+                "input": "src",
+                "output": "/"
+              },
+              {
+                "glob": "robots.txt",
+                "input": "src",
+               "output": "/"
+              }
+
             ],
             "styles": [
               "src/styles.css"
